@@ -4,12 +4,28 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Nicolaslopezj\Searchable\SearchableTrait;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class Product extends Model
 {
 	use SearchableTrait;
+    use Sluggable;
 
     protected $fillable = ['name','quantity', 'delivery_fee', 'profit', 'keywords', 'slug', 'price', 'details', 'description', 'featured', 'image', 'images', 'boosted', 'weekend'];
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
 
 
 	/**

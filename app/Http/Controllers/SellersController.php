@@ -2,18 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Brand;
 use App\Category;
 use App\CategoryProduct;
 use App\CategorySub;
 use App\CategorySubProduct;
 use App\Product;
 use App\Seller;
-use App\Brand;
 use App\SellerProduct;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class SellersController extends Controller
 {
@@ -89,8 +91,8 @@ class SellersController extends Controller
                 'specialize' => 'required',
             ]);
 
-            $address = str_replace("/", "_", $request->input('address'));
-            $specialize = str_replace("/", "_", $request->input('specialize'));
+            $address = Str::slug($request->input('address')); 
+            $specialize = Str::slug($request->input('specialize')); 
 
             Seller::create([
                 'name' => auth()->user()->name,
@@ -193,8 +195,7 @@ class SellersController extends Controller
             'name' => 'required|string',
         ]);
 
-        $oldslug = str_replace(" ", "_", $request->input('name'));
-        $slug = str_replace("/","-",$oldslug);
+        $slug = SlugService::createSlug(Brand::class, 'slug', $request->input('name'));
 
         $checkSlug = Brand::where('slug', $slug)->get()->count();
 
@@ -231,8 +232,7 @@ class SellersController extends Controller
             'name' => 'required|string',
         ]);
 
-        $oldslug = str_replace(" ", "_", $request->input('name'));
-        $slug = str_replace("/","-",$oldslug);
+        $slug = SlugService::createSlug(Brand::class, 'slug', $request->input('name'));
 
         $checkSlug = Brand::where('slug', $slug)->get()->count();
 
@@ -292,8 +292,8 @@ class SellersController extends Controller
         ]);
         
 
-        $oldslug = str_replace(" ", "_", $request->input('name')).'_'.auth()->user()->name.'_'.date('h_m_s');
-        $slug = str_replace("/","-",$oldslug);
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->input('name'));
+
         $keywords = "buy ".$request->input('name')." online";
         $price = $request->input('price');
         $profit = 0.09 * $price;
@@ -512,8 +512,8 @@ class SellersController extends Controller
         ]);
         
 
-        $oldslug = str_replace(" ", "_", $request->input('name')).'_'.auth()->user()->name.'_'.date('h_m_s');
-        $slug = str_replace("/","-",$oldslug);
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->input('name'));
+        
         $keywords = "buy ".$request->input('name')." online";
         $price = $request->input('price');
         $profit = 0.09 * $price;

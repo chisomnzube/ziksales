@@ -16,6 +16,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use DB;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class LandingPageController extends Controller
 {
@@ -64,6 +65,9 @@ class LandingPageController extends Controller
 
          public function test()
             {
+                $slug = SlugService::createSlug(Product::class, 'slug', 'My First Post');
+                dd($slug);
+
                 //this code will make all the products that is 8 months older to disappear
                 $Thedate = Carbon::now();
                 $Thedate->addMonths(-8)->toArray();
