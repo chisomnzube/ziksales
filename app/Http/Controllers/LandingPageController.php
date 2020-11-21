@@ -25,7 +25,8 @@ class LandingPageController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
+
         $categories = Category::all();
         $allSubCategories = CategorySub::all();
         $banners = Banner::orderBy('id', 'desc')->take(8)->get();
@@ -63,6 +64,19 @@ class LandingPageController extends Controller
 
          public function test()
             {
+                //this code will make all the products that is 8 months older to disappear
+                $Thedate = Carbon::now();
+                $Thedate->addMonths(-8)->toArray();
+                $expiry = $Thedate->format('Y-m-d').' 00:00:00';
+                //dd($expiry);
+
+                $products = Product::where('created_at', '<', $expiry)->update([
+                    'quantity' => 0,
+                    'featured' => 0,
+                ]);
+                
+                dd('work done successfully');
+                
                 //$date = Carbon::now();
                 //$date->addDays(2)->toArray();
                 //dd($date->englishDayOfWeek.' '.$date->day.' '.$date->format('M'));
