@@ -1,0 +1,9 @@
+
+this is the script for laravel queue when delopment
+*/15 * * * * * /path/to/php /path/to/artisan queue:work --sansdaemon --tries=3
+[cron schedule] /path/to/php /path/to/artisan queue:work --sansdaemon --tries=3
+--max_exec_time=bla
+php artisan queue:work --sansdaemon --max_exec_time=60s
+
+command for laravel scout
+php -d memory_limit=-1 "C:\ProgramData\ComposerSetup\bin\composer.phar" update
