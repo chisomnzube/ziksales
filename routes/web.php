@@ -15,6 +15,9 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 //test
 Route::get('/testing', 'LandingPageController@test')->name('test');
 // Route::get('/algolia-search/{searchKey}', 'LandingPageController@demoSearch')->name('algolia.search');
+Route::get('/check-general', function () {
+    return view('emails.user.general');
+})->name('check.general');
 
 //basic pages
 Route::get('/', 'LandingPageController@index')->name('landing-page');

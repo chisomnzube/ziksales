@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width" />
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Happy Independence Day | Ziksales</title>
+<title>Weekend Sales | Ziksales</title>
 	
 <style>
 	/* ------------------------------------- 
@@ -269,8 +269,29 @@ ul.sidebar li a h1,ul.sidebar li a h2,ul.sidebar li a h3,ul.sidebar li a h4,ul.s
 			<table>
 				<tr>
 					<td>
-						<h1>Happy Independence Day</h1>		
-						<img src="https://www.ziksales.com/img/month/october.jpg" />
+						{{-- <h1>WEEKEND SALES</h1>		 --}}
+						<img src="https://www.ziksales.com/img/weekend.jpeg" />
+						<h5>How To Spend Less This Xmas Season...  <br>
+							<span style="font-size: .67em;">And Still, Have a Fantabulous Celebration. </span>
+						</h5>
+						<p>		
+
+							I know you desire to get new and quality products this season so you can be the envy of your peers. But this year 2020 has landed us into lots of financial mess. <br>
+
+							I want to gladly announce to you that you can still shop for all your fabulous items at a rate that is almost FREE. <br>
+
+							In the spirit of BLACK FRIDAY, I introduce you to <b>ZIKSALES WEEKEND SALES</b>. A time when you can get your desired products at a heavily reduced price... <br>
+
+							Ranging from Phone accessories, electronic gadgets, ladies handbags, gas cylinders and cookers, clothing accessories, and a whole lot more!!!... <br>
+
+							Since Ziksales is a registered e-commerce shopping store, you do not have to worry about inferior products or 419. <br>
+
+							Join other SMART persons to begin placing orders on the products of your choice and have it delivered to you at your doorstep. Otherwise, you get it twice the original amount (Christmas is approaching, you know?) <br>
+
+							This offer won't last FOREVER. It starts on Saturday, 5th December 2020 by 12 am and ends by exactly 12 am on Monday, 7th December 2020. <br>
+
+							<b>#WiseBuyersChooseZiksales</b>
+						</p>
 						<p>
 							<i>
 								Warm regards,<br>
