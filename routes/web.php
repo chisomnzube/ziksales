@@ -28,7 +28,7 @@ Route::get('/privacy-policy', 'LandingPageController@policy')->name('policy');
 Route::get('/terms-and-conditions', 'LandingPageController@tandc')->name('tandc');
 
 //route for weekend sales
-Route::get('/Weeked-sales', 'LandingPageController@weekend')->name('weekend.sales');
+Route::get('/weekend-sales', 'LandingPageController@weekend')->name('weekend.sales');
 
 //how tos
 Route::get('/how-to-be-a-seller', 'LandingPageController@howSeller')->name('how.seller');

@@ -232,7 +232,7 @@ class LandingPageController extends Controller
                             }            
              
 
-        return view('shop')->with([
+        return view('weekend')->with([
                 'products' => $products,
                 'categories' => $categories,
                 'categoryName' => $categoryName,
