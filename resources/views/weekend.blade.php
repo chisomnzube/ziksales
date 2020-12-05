@@ -55,18 +55,18 @@
           </div>
           <div class="row no-gutters gutters-2">
 
-            <div class="row" style="width: 100%;" >
+{{--             <div class="row" style="width: 100%;" >
               <div class="col-md-12">
                 <div class="d-flex justify-content-center">
                   <div class="powr-countdown-timer" id="222b1c7f_1606491543"></div>
                   <script src="https://www.powr.io/powr.js?platform=html"></script>
                 </div>
               </div>
-            </div>
+            </div> --}}
             
             
 
-            {{-- @if($products->count() > 0)
+            @if($products->count() > 0)
               @foreach($products as $product)
                   <div class="col-6 col-md-3 mb-2">
                     <div class="card card-product" style="height: 100%; width: 100%;">
@@ -92,7 +92,7 @@
               @endforeach
             @else
               <p>No product Found</p>
-            @endif      --}}    
+            @endif         
 
         
           </div>
