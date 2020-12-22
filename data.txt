@@ -1,0 +1,6 @@
+ssh ziksdxfh@198.54.121.248 -p 	21098
+pw: gxhn7NT1XFe5
+
+//email for sending mails
+info@ziksales.com
+Info2018$
