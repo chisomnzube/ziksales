@@ -41,7 +41,7 @@ class UsersMail extends Mailable
 
         return $this->bcc($singleUsers)
                     ->bcc('no-reply@ziksales.com')
-                    ->subject('WEEKEND SALES | ZIKSALES')
+                    ->subject('Merry Christmas | ZIKSALES')
                     ->view('emails.user.general');
     }
 }
