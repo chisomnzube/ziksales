@@ -65,21 +65,36 @@ class LandingPageController extends Controller
 
          public function test()
             {
-                $slug = SlugService::createSlug(Product::class, 'slug', 'My First Post');
-                dd($slug);
+                //this command will make all products gotten from jumia inaccessible
+                $products = Roboturl::all();
+                foreach ($products as $product) 
+                    {
+                        $prod = Product::find($product->product_id);
+                        if ($prod) 
+                            {
+                                $prod->update([
+                                    'featured' => 0,
+                                ]);
+                            }
+                    }
+                dd('work done successfully!');
+                //ends here
 
-                //this code will make all the products that is 8 months older to disappear
-                $Thedate = Carbon::now();
-                $Thedate->addMonths(-8)->toArray();
-                $expiry = $Thedate->format('Y-m-d').' 00:00:00';
-                //dd($expiry);
+                // $slug = SlugService::createSlug(Product::class, 'slug', 'My First Post');
+                // dd($slug);
 
-                $products = Product::where('created_at', '<', $expiry)->update([
-                    'quantity' => 0,
-                    'featured' => 0,
-                ]);
+                // //this code will make all the products that is 8 months older to disappear
+                // $Thedate = Carbon::now();
+                // $Thedate->addMonths(-8)->toArray();
+                // $expiry = $Thedate->format('Y-m-d').' 00:00:00';
+                // //dd($expiry);
+
+                // $products = Product::where('created_at', '<', $expiry)->update([
+                //     'quantity' => 0,
+                //     'featured' => 0,
+                // ]);
                 
-                dd('work done successfully');
+                // dd('work done successfully');
                 
                 //$date = Carbon::now();
                 //$date->addDays(2)->toArray();
