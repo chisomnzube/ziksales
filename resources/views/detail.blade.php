@@ -87,7 +87,7 @@
             </div>
             <div class="col-md-5">
               <div class="detail-header">
-                <h3>{{ $product->name }}</h3>
+                <h3>{!! $product->name !!}</h3>
                 <h3 class="price">&#8358;{{ number_format(totalcash($product->price, $product->profit) ) }}</h3>
                     <div class="form-group mb-4">
                       <div class="btn-group btn-group-sm btn-group-toggle" data-toggle="buttons">

@@ -13,6 +13,8 @@ use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Storage;
+use Illuminate\Support\Str;
+use App\Console\simple_html_dom;
 
 class ProductUpload extends Command
 {
@@ -53,7 +55,8 @@ class ProductUpload extends Command
         {            
         
         // here is the code for simple html dom
-        //include('simple_html_dom.php');
+        // include('../simple_html_dom.php');
+        include __DIR__ . '/../simple_html_dom.php';
 
         //category url
         $category_url = $robot->link;
@@ -109,15 +112,15 @@ class ProductUpload extends Command
 
                 //to get the description/bpdy
                 $product_body = $product_html->find('div.markup');
-                $body = strip_tags($product_body[1]); //this can be empty 
-
+                $body = strip_tags($product_body[6]); //this can be empty 
+                
                 //to get the image url
-                foreach($product_html->find('a[data-selected=1]') as $product_image)
+                foreach($product_html->find('a[data-pop-dyn-id=1]') as $product_image)
                 $image = $product_image->href;
-
+                
                 //the slug
-                $oldslug = str_replace(" ", "_", $name);
-                $slug = str_replace("/","-",$oldslug);
+                // $oldslug = str_replace(" ", "_", $name);
+                $slug = Str::slug($name);
 
                 //the keyword
                 $keywords = "buy ".$name." online";

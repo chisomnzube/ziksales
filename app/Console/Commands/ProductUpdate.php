@@ -48,10 +48,14 @@ class ProductUpdate extends Command
     public function handle()
     {
         //to grab the products
-        $products = Roboturl::all();
+        $products = Roboturl::where('updated', 0)->get();
+        // here is the code for simple html dom
+        // include('../simple_html_dom.php');
+        include __DIR__ . '/../simple_html_dom.php';
 
         foreach ($products as $product) 
-            {
+            {               
+
                 //product url
                 $product_url = $product->theUrl;
                 $product_html = file_get_html($product_url);
@@ -61,6 +65,7 @@ class ProductUpdate extends Command
                 
                 //this will check it the product is still available on the website
                 try {
+                        
                         $get_price = $product_price[0];
                         $hey = preg_replace('/[^0-9]/', '', $get_price);
                         $thePrice = substr($hey, 2,100);
@@ -72,15 +77,16 @@ class ProductUpdate extends Command
                         //to check if there is a change in price
                         $check = Product::find($product->product_id);
                         if ($price != $check->price) 
-                            {
+                            {                                
                                 Product::where('id', $product->product_id)->update([
                                     'price' => $price,
                                     'profit' => $profit
                                 ]);
                             }
 
-                    } catch (\Exception $e) {
+                     $product->increment('updated');   
 
+                    } catch (\Exception $e) {
                         //dd("NOT Available");
                         $id = $product->product_id;
 
@@ -94,9 +100,13 @@ class ProductUpdate extends Command
                         // delete from main product
                         
                         $mainproduct = Product::find($id);
-                        dd($mainproduct);
-                        Storage::delete('public/'.$mainproduct->image);
-                        $mainproduct->delete();
+                        $mainproduct->update([
+                            'featured' => 0,
+                            'quantity' => 0,
+                        ]);
+                        // dd($mainproduct);
+                        // Storage::delete('public/'.$mainproduct->image);
+                        // $mainproduct->delete();
 
                     }              
 

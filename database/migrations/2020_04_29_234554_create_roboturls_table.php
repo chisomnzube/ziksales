@@ -17,6 +17,7 @@ class CreateRoboturlsTable extends Migration
             $table->bigIncrements('id');
             $table->integer('product_id');
             $table->text('theUrl');
+            $table->boolean('updated')->default(false);
             $table->timestamps();
         });
     }

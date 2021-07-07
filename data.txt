@@ -4,3 +4,7 @@ pw: gxhn7NT1XFe5
 //email for sending mails
 info@ziksales.com
 Info2018$
+
+//paystack
+chisomnzube@gmail.com
+$NzubeChisom1997

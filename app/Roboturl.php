@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Roboturl extends Model
 {
-    protected $fillable = ['product_id', 'theUrl'];
+    protected $fillable = ['product_id', 'theUrl', 'updated'];
 }
