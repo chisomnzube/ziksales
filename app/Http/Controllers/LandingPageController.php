@@ -85,7 +85,7 @@ class LandingPageController extends Controller
 
                 //this code will make all the products that is 8 months older to disappear
                 $Thedate = Carbon::now();
-                $Thedate->addMonths(-8)->toArray();
+                $Thedate->addMonths(-4)->toArray();
                 $expiry = $Thedate->format('Y-m-d').' 00:00:00';
                 //dd($expiry);
 
