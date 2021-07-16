@@ -34,19 +34,19 @@ class LandingPageController extends Controller
 
         //boosted ads
         $fasbeas = Product::with('categories')->whereHas('categories', function($query){
-                    $query->where('slug', 'women-s-fashion')->orWhere('slug', 'men-s-fashion')->orWhere('slug', 'health-and-beauty');   })->where('quantity', '>', 0)->where('featured', 1)->where('boosted', 1)->inRandomOrder()->take(6)->get();;
+                    $query->where('slug', 'women-s-fashion')->orWhere('slug', 'men-s-fashion')->orWhere('slug', 'health-and-beauty');   })->where('quantity', '>', 0)->where('featured', 1)->inRandomOrder()->take(6)->get();;
 
         $comeles = Product::with('categories')->whereHas('categories', function($query){
-                    $query->where('slug', 'electronics')->orWhere('slug', 'computer');   })->where('quantity', '>', 0)->where('featured', 1)->where('boosted', 1)->inRandomOrder()->take(6)->get();;
+                    $query->where('slug', 'electronics')->orWhere('slug', 'computer');   })->where('quantity', '>', 0)->where('featured', 1)->inRandomOrder()->take(6)->get();;
 
 
-        $mobiles = Product::with('categorySubs')->whereHas('categorySubs', function($query){ $query->where('name', '=', 'Mobile Phones');   })->where('quantity', '>', 0)->where('featured', 1)->where('boosted', 1)->inRandomOrder()->take(6)->get();;
+        $mobiles = Product::with('categorySubs')->whereHas('categorySubs', function($query){ $query->where('name', '=', 'Mobile Phones');   })->where('quantity', '>', 0)->where('featured', 1)->inRandomOrder()->take(6)->get();;
 
         $grocerys = Product::with('categories')->whereHas('categories', function($query){
-                    $query->where('slug', 'grocery');   })->where('quantity', '>', 0)->where('featured', 1)->where('boosted', 1)->inRandomOrder()->take(6)->get();;
+                    $query->where('slug', 'grocery');   })->where('quantity', '>', 0)->where('featured', 1)->inRandomOrder()->take(6)->get();;
 
         $homebooks = Product::with('categories')->whereHas('categories', function($query){
-                    $query->where('slug', 'home-and-office')->orWhere('slug', 'books-and-stationary');   })->where('quantity', '>', 0)->where('featured', 1)->where('boosted', 1)->inRandomOrder()->take(6)->get();;
+                    $query->where('slug', 'home-and-office')->orWhere('slug', 'books-and-stationary');   })->where('quantity', '>', 0)->where('featured', 1)->inRandomOrder()->take(6)->get();;
 
 
 
