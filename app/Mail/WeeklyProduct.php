@@ -41,7 +41,7 @@ class WeeklyProduct extends Mailable
         $singleUsers = call_user_func_array('array_merge', $newUsers);  
                 //$emails = implode(', ', $singleUsers);  
                 //dd($singleUsers);
-
+        dd($singleUsers);
         return $this->bcc($singleUsers)
                     ->bcc('no-reply@ziksales.com')
                     ->subject('Ziksales - Product of the week')
